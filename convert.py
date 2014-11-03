@@ -111,6 +111,7 @@ for account, subaccounts, splits in book.walk():
         </STMTTRNRS>
     </BANKMSGSRSV1>
 </OFX>""" % str(total)
-    f = open("%s/%s.ofx" % (output_dir, account.name), "w")
-    f.write(txt)
+    output_file = account.name.replace('/', '_')
+    f = open("%s/%s.ofx" % (output_dir, output_file), "w")
+    f.write(txt.encode('utf-8'))
     f.close()
